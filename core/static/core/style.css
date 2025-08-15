@@ -1,0 +1,90 @@
+
+body {
+    font-weight: bolder;
+    background-color: rgb(0, 0, 0);
+}
+
+.box{
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.box-mid {
+    bottom: 10rem;
+    
+}
+
+.box-bottom{
+    bottom:0;
+}
+
+.box .inner {
+    position: relative;
+    width: 100000px;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 10vw;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.box .inner span a {
+    position:absolute;
+    white-space: nowrap;
+    -webkit-text-stroke: 5px #000;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    transition: color 0.3s ease, -webkit-text-stroke 1s ease;
+    cursor: pointer;
+}
+
+.box .inner:first-child {
+	background-color: rgb(226, 226, 226);
+	color: rgb(0, 0, 0);
+	transform-origin: right;
+	transform: perspective(100px) rotateY(-15deg);
+}
+
+.box .inner:last-child {
+	background-color: white;
+	color: rgb(0, 0, 0);
+	transform-origin: left;
+	transform: perspective(100px) rotateY(15deg);
+}
+
+
+.box .inner span {
+	position: absolute;
+	animation: marquee 5s linear infinite;
+}
+
+.box:hover .inner span{ 
+    animation-play-state: paused;
+}
+
+.box:hover .inner span a {
+    color: black;
+    -webkit-text-stroke: 6px;
+}
+
+.box .inner:first-child span {
+	animation-delay: 2.5s;
+	left: -100%;
+}
+
+@keyframes marquee {
+	from {
+		left: 100%;
+	}
+
+	to {
+		left: -100%;
+	}
+}
