@@ -11,15 +11,38 @@ body {
 
 .box {
   position: fixed; /* pin it to the screen */
-  top: 0;
-  left: 0;
   width: 66vw; /* 66% of viewport width */
   height: 33vh; /* 33% of viewport height */
+}
 
+.Top-7 {
+  top: 0;
+  left: 0;
+  width: 66vw;
+  height: 33vh;
+  clip-path: polygon(97% 87%, 97% 0, 100% 0, 100% 100%, 0 0, 6% 0);
+  background-color: rgb(0, 0, 0);
   display: flex;
-  align-items: center; /* vertically center child text */
-  justify-content: center; /* horizontally center child text */
-  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66vw;
+  height: 33vh;
+}
+.bottom-7 {
+  width: 66vw;
+  height: 33vh;
+  clip-path: polygon(97% 87%, 97% 0, 100% 0, 100% 100%, 0 0, 6% 0);
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inSideBar {
@@ -61,7 +84,6 @@ body {
 
 .sidebar-section::after {
   content: "";
-  color: blue;
 }
 
 .sidebar-section:last-child {
@@ -74,19 +96,11 @@ body {
   transform: translate(7px, 7px);
 }
 
-.name {
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .name span {
   font-family: "Bitcount Grid Single", sans-serif;
   font-weight: bolder;
   font-style: normal;
-  font-size: 7vw;
+  font-size: 5.5svw;
 
   color: black;
 
