@@ -1,20 +1,14 @@
 import { defineConfig } from "vite";
 import path from "path";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig(({ command }) => ({
-  // Use '/' as base in dev so the vite dev server serves at root.
-  // Use '/static/' for production builds so Django can serve built assets.
-  base: command === "serve" ? "/" : "/static/",
-  server: {
-    // ensure dev server runs on a stable port so Django tags hit the right URL
-    port: 5174,
-    strictPort: true,
-    hmr: {
-      protocol: "ws",
-      host: "localhost",
-      port: 5174,
-    },
-  },
+  plugins: [react(), tailwindcss()],
+
+  // Serve assets under '/static/' for both dev and production so
+  // Django and the Vite dev server use the same URL paths.
+  base: "/static/",
   build: {
     // Where Vite will save its output files.
     // This should be something in your settings.STATICFILES_DIRS
@@ -24,11 +18,14 @@ export default defineConfig(({ command }) => ({
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, "./front-end/index.js"),
+        hello: path.resolve(__dirname, "./front-end/hello.jsx"),
+        style: path.resolve(__dirname, "./front-end/style.css"),
       },
       output: {
         // Output JS bundles to js/ directory with -bundle suffix
         entryFileNames: `js/[name]-bundle.js`,
+        assetFileNames: "css/[name].css",
       },
     },
   },
-});
+}));

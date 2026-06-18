@@ -1,10 +1,12 @@
-{% load django_vite %} {% load django_vite %}
+{% load django_vite %}
 <html>
   <head>
     <title>Getting Started with Django and Vite</title>
-    {% vite_hmr_client %}
+    {% vite_hmr_client %} {% vite_asset 'front-end/style.css' %}
   </head>
-  <body>
-    {% vite_asset 'front-end/index.js' %}
+  <body class="bg-emerald-700 my-4">
+    <div id="root"></div>
+    <p class="text-center text-white">(and Tailwind)</p>
+    {% vite_asset 'front-end/hello.jsx' %}
   </body>
 </html>
