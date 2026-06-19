@@ -1,12 +1,19 @@
-{% load django_vite %}
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Getting Started with Django and Vite</title>
-    {% vite_hmr_client %} {% vite_asset 'front-end/style.css' %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
   </head>
-  <body class="bg-emerald-700 my-4">
+
+  <body>
     <div id="root"></div>
-    <p class="text-center text-white">(and Tailwind)</p>
-    {% vite_asset 'front-end/hello.jsx' %}
+
+    {% load static %} {% if debug %}
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/main.jsx"></script>
+    {% else %}
+    <script type="module" src="{% static 'js/main-bundle.js' %}"></script>
+    {% endif %}
   </body>
 </html>

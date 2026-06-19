@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Local dev helpers
+    'Portfolio.devtools',
     'django_vite',
     'django.contrib.admin',
     'django.contrib.auth',

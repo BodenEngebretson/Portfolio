@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig(({ command }) => ({
   plugins: [react(), tailwindcss()],
-
+  root: "front-end",
   // Serve assets under '/static/' for both dev and production so
   // Django and the Vite dev server use the same URL paths.
   base: "/static/",
@@ -17,9 +17,7 @@ export default defineConfig(({ command }) => ({
     manifest: "manifest.json",
     rollupOptions: {
       input: {
-        index: path.resolve(__dirname, "./front-end/index.js"),
-        hello: path.resolve(__dirname, "./front-end/hello.jsx"),
-        style: path.resolve(__dirname, "./front-end/style.css"),
+        main: path.resolve(__dirname, "./front-end/main.jsx"),
       },
       output: {
         // Output JS bundles to js/ directory with -bundle suffix
